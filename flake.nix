@@ -36,5 +36,14 @@
           # inputs.anytype-heart-grpc.nixosModules.anytype-heart-grpc
         ];
       };
+      nixosConfigurations.masina = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/masina/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.sops-nix.nixosModules.sops
+        ];
+      };
     };
 }

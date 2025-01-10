@@ -9,6 +9,9 @@
   time.timeZone = "Europe/Ljubljana";
 
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_TIME = "sl_SI.UTF-8";
+  };
   console = {
     font = "Lat2-Terminus16";
     keyMap = "slovene";

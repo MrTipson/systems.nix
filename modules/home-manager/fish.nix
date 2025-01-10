@@ -19,7 +19,8 @@
         };
       }
     ];
+    interactiveShellInit = "set -U fish_greeting\n";
     # Workaround:
-    # shellInit = "source ~/.config/fish/functions/print-time.fish\nsource ~/.config/fish/functions/goodbye.fish\n";
+    shellInit = "source ~/.config/fish/functions/print-time.fish\n";
   };
 }
