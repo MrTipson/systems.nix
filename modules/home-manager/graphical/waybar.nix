@@ -58,7 +58,7 @@
             shutdown = "shutdown";
             reboot = "reboot";
             suspend = "systemctl suspend";
-            hibernate = "systemctl hibernate";
+            logout = "loginctl terminate-user \"\"";
           };
         };
       }
