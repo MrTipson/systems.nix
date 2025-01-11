@@ -1,0 +1,30 @@
+.notification {
+    color: rgb(220, 220, 220);
+    background: transparent;
+    border: 0;
+}
+
+.notification-default-action {
+    color: inherit;
+    background: rgb(42, 42, 42);
+    padding: 5px 10px;
+    border: 1px solid rgb(60, 60, 60);
+    border-right: 3px solid currentColor;
+    border-radius: 4px;
+}
+
+.notification-default-action:hover {
+    border: 1px solid rgb(120, 120, 120);
+    border-right: 3px solid currentColor;
+}
+
+.notification.critical { color: red; }
+.notification.low { color: rgb(120, 120, 120); }
+
+.notification-content {
+    padding: 5px 10px;
+}
+
+.image {
+    margin-right: 15px;
+}

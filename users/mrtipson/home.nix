@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
-let tofi-font = "${(pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })}/share/fonts/truetype/NerdFonts/FiraCodeNerdFontMono-Retina.ttf";
+let tofi-font-pkg = pkgs.nerd-fonts.fira-code;
+    tofi-font = "${tofi-font-pkg}/share/fonts/truetype/NerdFonts/FiraCodeNerdFontMono-Retina.ttf";
 in
 {
   imports = with import ../../modules/home-manager; [
@@ -16,10 +17,14 @@ in
   home.packages = with pkgs; [
     nixd
     nixfmt-rfc-style
+    tofi-font-pkg # font
     wl-clipboard
-    hyprshot
-    superfile
-    fd
+    hyprshot # screenshot tool
+    superfile # terminal file manager
+    qpwgraph # pipewire patchbay
+    pwvucontrol # pipewire volume control
+    zenith-nvidia # hardware monitor
+    fd # fast 'find' alternative
   ];
   programs.direnv.enable = true;
   programs.git = {
@@ -40,6 +45,7 @@ in
   };
   programs.discocss = {
     enable = true;
+    css = "";
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -101,9 +107,12 @@ in
         layer = "top";
         modules-left = ["hyprland/workspaces" ];
         modules-center = ["hyprland/window"];
-        modules-right = ["cpu" "memory" "clock" "custom/power"];
+        modules-right = ["cpu" "temperature#cpu" "memory" "wireplumber" "clock" "custom/power"];
         cpu = {
           format = "  {}%";
+        };
+        "temperature#cpu" = {
+          hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
         };
         memory = {
           format = "   {percentage}%";
@@ -128,6 +137,16 @@ in
             };
           };
         };
+        wireplumber = {
+          format = "   {volume}%";
+          format-muted = "";
+          on-click = "pwvucontrol";
+          on-click-middle = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          on-click-right = "qpwgraph";
+          tooltip = false;
+          max-volume = 150;
+          scroll-step = 0.2;
+        };
 
         "custom/power" = {
           format = "⏻";
@@ -147,13 +166,14 @@ in
   };
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
     settings = {
       "$mod" = "SUPER";
       bind = [ # nix-shell -p wev --run "wev"
-        "$mod, F, exec, kitty"
+        "$mod, F, exec, uwsm app -- kitty"
         "Control Alt, Delete, exit, "
-        "$mod, R, exec, tofi-drun --font ${tofi-font} | xargs hyprctl dispatch exec --"
-        "$mod, T, exec, tofi-run --font ${tofi-font} --require-match=false --prompt-text='execute command: ' | xargs -r hyprctl dispatch exec -- kitty --hold"
+        "$mod, R, exec, uwsm app -- $(tofi-drun --font ${tofi-font})"
+        "$mod, T, exec, tofi-run --font ${tofi-font} --require-match=false --prompt-text='execute command: ' | xargs -r uwsm app -- kitty --hold"
         "$mod, C, killactive,"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
@@ -161,8 +181,8 @@ in
         "$mod, down, movefocus, d"
         ", Print, exec, hyprshot -m region --clipboard-only"
         "$mod, Print, exec, hyprshot -m window --clipboard-only"
-        "$mod, s, exec, kitty superfile"
-        "$mod, v, exec, fd . ~ | tofi --font ${tofi-font} --require-match=false --prompt-text='save clipboard to: ' | wl-paste >"
+        "$mod, s, exec, uwsm app -- kitty superfile"
+        "$mod, v, exec, bash -c \"wl-paste > $(${../../modules/home-manager/tofi-recursive-file.sh} --font ${tofi-font} --prompt-text='save clipboard to: ')\""
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
@@ -184,6 +204,7 @@ in
     extraConfig = ''
       input {
         kb_layout = si
+        numlock_by_default = true
       }
     '';
   };
@@ -209,6 +230,22 @@ in
     };
     style = ./swaync.css;
   };
+  systemd.user.services.polkit-soteria = { # nixpkgs/nixos/modules/security/soteria.nix
+    Unit = {
+      Description = "Soteria, Polkit authentication agent for any desktop environment";
+      Wants = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.soteria}/bin/soteria";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
+
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell

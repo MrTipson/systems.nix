@@ -20,7 +20,7 @@ while true; do
     --require-match=false \
     --fuzzy-match=true \
     --num-results=0 \
-    $@ \
+    "$@" \
     <<< $FILES)
 
   # Nothing was selected
@@ -28,10 +28,17 @@ while true; do
     exit
   fi
 
-  DIR=$(realpath "$DIR/$SELECTED")
+  DIR="$DIR/$SELECTED"
+  if [[ ! -e $DIR ]]; then
+    mkdir -p ${DIR%/*}
+  fi
+
+  if [[ -d $DIR ]]; then
+    DIR=$(realpath $DIR)
+  fi
 
   # File or current directory was selected
-  if [[ -f $DIR || $SELECTED == "." ]]; then
+  if [[ -f $DIR || ! -e $DIR || $SELECTED == "." ]]; then
     echo $DIR
     exit
   fi

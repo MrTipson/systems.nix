@@ -21,6 +21,13 @@
     ];
     interactiveShellInit = "set -U fish_greeting\n";
     # Workaround:
-    shellInit = "source ~/.config/fish/functions/print-time.fish\n";
+    shellInit = ''
+      source ~/.config/fish/functions/print-time.fish
+    '';
+    loginShellInit = ''
+      if uwsm check may-start && uwsm select; 
+        exec systemd-cat -t uwsm_start uwsm start default
+      end
+    '';
   };
 }
