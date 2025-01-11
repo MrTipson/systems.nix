@@ -49,8 +49,12 @@
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = with import ./home-manager; [
+      hyprland
+      waybar
+    ];
     users = {
-      "tipson" = import ../../users/mrtipson/home.nix;
+      "tipson" = import ../../users/mrtipson;
     };
   };
 
