@@ -11,16 +11,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # flake-programs-sqlite = {
-    #   url = "github:wamserma/flake-programs-sqlite";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # anytype-heart-grpc = {
-    #   url = "path:/home/tipson/devel/nix-anytype-heart";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
   outputs =
     { self, nixpkgs, ... }@inputs:
