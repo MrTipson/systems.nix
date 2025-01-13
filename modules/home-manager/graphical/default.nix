@@ -1,6 +1,7 @@
 {
   discord = import ./discord.nix;
   hyprland = import ./hyprland.nix;
+  hyprland-nvidia = import ./hyprland-nvidia.nix;
   kitty = import ./kitty.nix;
   pipewire = import ./pipewire.nix;
   soteria = import ./soteria.nix;

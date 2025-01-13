@@ -9,6 +9,7 @@
 
     graphical.discord
     graphical.hyprland
+    graphical.hyprland-nvidia
     graphical.kitty
     graphical.pipewire
     graphical.soteria
