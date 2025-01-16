@@ -2,11 +2,18 @@
 {
   boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
-  environment.systemPackages = [ pkgs.nvidia-vaapi-driver ];
+  environment.systemPackages = with pkgs; [
+    nvidia-vaapi-driver # nix-shell -p libva-utils --run vainfo
+    egl-wayland
+    #libva-vdpau-driver # nix-shell -p vdpauinfo --run vdpauinfo
+  ];
 
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
+    extraPackages = with pkgs; [
+      libvdpau-va-gl
+    ];
   };
 
   # Load nvidia driver for Xorg and Wayland

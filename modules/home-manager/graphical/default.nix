@@ -1,5 +1,6 @@
 {
   discord = import ./discord.nix;
+  firefox = import ./firefox.nix;
   hyprland = import ./hyprland.nix;
   hyprland-nvidia = import ./hyprland-nvidia.nix;
   kitty = import ./kitty.nix;

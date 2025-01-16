@@ -13,6 +13,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = with import ../../overlays; [
+    inputs.nur.overlays.default
   ];
 
   imports = with import ../../modules/nixos; [

@@ -17,6 +17,7 @@
     graphical.tofi
     graphical.vscode
     graphical.waybar
+    graphical.firefox
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -43,7 +44,6 @@
     userName = "MrTipson";
     userEmail = "gunfight7.gf@gmail.com";
   };
-  programs.firefox.enable = true;
 
   home.file = {
     ".sops.yaml".text = ''
