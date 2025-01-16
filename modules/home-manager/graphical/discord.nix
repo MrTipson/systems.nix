@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  programs.discocss = {
-    enable = true;
-    css = "";
-  };
+  home.packages = [ pkgs.discord ];
+  # TODO inject
 }

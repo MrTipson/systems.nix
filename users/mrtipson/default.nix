@@ -31,9 +31,13 @@
     wl-clipboard
     hyprshot # screenshot tool
     zenith-nvidia # hardware monitor
+    anytype
   ];
 
-  programs.direnv.enable = true;
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   programs.git = {
     enable = true;
     userName = "MrTipson";
