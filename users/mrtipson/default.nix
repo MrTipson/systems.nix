@@ -89,7 +89,7 @@
       );
       bindm = [
         "$mod, mouse:272, movewindow"
-        "$mod Shift, mouse:272, resizewindow"
+        "$mod, mouse:273, resizewindow"
       ];
     };
     extraConfig = ''
