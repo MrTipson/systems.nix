@@ -20,6 +20,7 @@
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
     nvidia
+    display-fix
   ];
 
   # Use the systemd-boot EFI boot loader.
