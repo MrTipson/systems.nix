@@ -7,9 +7,9 @@ in
   programs.tofi = {
     enable = true;
     settings = {
-      background-color = "#000A";
+      background-color = lib.mkDefault "#000A";
       border-width = 0;
-      font = tofi-font;
+      font = lib.mkDefault tofi-font;
       height = "100%";
       num-results = 5;
       outline-width = 0;

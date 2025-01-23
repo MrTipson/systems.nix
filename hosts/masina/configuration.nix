@@ -55,6 +55,7 @@
     sharedModules = with import ./home-manager; [
       hyprland
       waybar
+      inputs.stylix.homeManagerModules.stylix
     ];
     users = {
       "tipson" = import ../../users/mrtipson;

@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
+  stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -8,7 +9,7 @@
         layer = "top";
         modules-left = ["hyprland/workspaces" ];
         modules-center = ["hyprland/window"];
-        modules-right = ["cpu" "temperature#cpu" "memory" "wireplumber" "clock" "custom/power"];
+        modules-right = ["cpu" "temperature#cpu" "memory" "wireplumber" "custom/notification" "clock" "custom/power"];
         cpu = {
           format = "  {}%";
         };
@@ -46,7 +47,7 @@
           on-click-right = "qpwgraph";
           tooltip = false;
           max-volume = 150;
-          scroll-step = 0.2;
+          scroll-step = 0.5;
         };
 
         "custom/power" = {
@@ -61,9 +62,81 @@
             logout = "loginctl terminate-user \"\"";
           };
         };
+        "custom/notification" = {
+          "tooltip" = false;
+          "format" = "{} {icon}";
+          "format-icons" = {
+            "notification" = "<span foreground='red'><sup></sup></span>";
+            "none" = "";
+            "dnd-notification" = "<span foreground='red'><sup></sup></span>";
+            "dnd-none" = "";
+            "inhibited-notification" = "<span foreground='red'><sup></sup></span>";
+            "inhibited-none" = "";
+            "dnd-inhibited-notification" = "<span foreground='red'><sup></sup></span>";
+            "dnd-inhibited-none" = "";
+          };
+          "return-type" = "json";
+          "exec-if" = "which swaync-client";
+          "exec" = "swaync-client -swb";
+          "on-click" = "swaync-client -t -sw";
+          "on-click-right" = "swaync-client -d -sw";
+          "escape" = true;
+        };
       }
     ];
     # env GTK_DEBUG=interactive waybar -s waybar-style.css
-    style = ./waybar-style.css;
+    style = with config.lib.stylix.colors.withHashtag; /*css*/ ''
+      @define-color base00 ${base00}; @define-color base01 ${base01}; @define-color base02 ${base02}; @define-color base03 ${base03};
+      @define-color base04 ${base04}; @define-color base05 ${base05}; @define-color base06 ${base06}; @define-color base07 ${base07};
+      @define-color base08 ${base08}; @define-color base09 ${base09}; @define-color base0A ${base0A}; @define-color base0B ${base0B};
+      @define-color base0C ${base0C}; @define-color base0D ${base0D}; @define-color base0E ${base0E}; @define-color base0F ${base0F};
+    ''
+    + (with config.stylix; /*css*/ ''
+      * {
+        font-family: "${fonts.sansSerif.name}";
+        font-size: ${builtins.toString fonts.sizes.desktop}pt;
+      }
+
+      window#waybar {
+        font-family: Source Code Pro;
+        background: alpha(@base00, ${builtins.toString opacity.desktop});
+        color: @base05;
+        font-size: small;
+      }
+      tooltip {
+        background: alpha(@base00, ${builtins.toString opacity.popups});
+        border-color: @base0D;
+      }
+      #cpu { color: @base08; margin-right: 0px; }
+      #temperature.cpu { color: @base08; margin-left: 0px; }
+      #memory { color: @base09; }
+      #wireplumber { color: @base0A; }
+      #custom-notification { color: @base0B; padding-right: 8px; }
+      #clock { color: @color0C; }
+      #custom-power { color: @base0D; padding-right: 8px; }
+      .modules-right .module {
+        padding: 1px 5px;
+        margin: 0px 5px;
+        border-top: 1px solid;
+      }
+      #workspaces button {
+        padding: 0 5px;
+        border-radius: 0px;
+        border: 0px;
+      }
+      #workspaces button.visible {
+        color: @base0D;
+        border-top: 1px solid;
+      }
+      #workspaces button:hover {
+        background: @base00;
+        transition: none;
+        text-shadow: none;
+        box-shadow: none;
+      }
+      #workspaces {
+        outline: none;
+      }
+    '');
   };
 }

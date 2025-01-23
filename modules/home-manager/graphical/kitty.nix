@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = 0.8;
+      background_opacity = lib.mkDefault 0.8;
     };
   };
 }

@@ -8,16 +8,18 @@
     ssh.github
 
     graphical.discord
+    graphical.firefox
+    graphical.hyprcursor
     graphical.hyprland
     graphical.hyprland-nvidia
     graphical.kitty
     graphical.pipewire
     graphical.soteria
+    graphical.stylix
     graphical.swaync
     graphical.tofi
     graphical.vscode
     graphical.waybar
-    graphical.firefox
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
