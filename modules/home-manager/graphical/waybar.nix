@@ -13,6 +13,7 @@
         cpu = {
           format = "  {}%";
         };
+        margin-top = -2;
         "temperature#cpu" = {
           hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
         };

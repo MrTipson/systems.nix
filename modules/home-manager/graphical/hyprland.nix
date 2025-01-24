@@ -9,7 +9,19 @@
         "XCURSOR_THEME,${config.stylix.cursor.name}"
         "XCURSOR_SIZE,${builtins.toString config.stylix.cursor.size}"
       ];
-      decoration.blur.enabled = false;
+      general.gaps_out = 10;
+      decoration = {
+        blur.enabled = false;
+        shadow.enabled = false;
+      };
+      input = {
+        repeat_rate = 50;
+        repeat_delay = 300;
+        follow_mouse = 0;
+      };
+      animation = [
+        "global, 1, 3, default"
+      ];
     };
     extraConfig = ''
       input {
