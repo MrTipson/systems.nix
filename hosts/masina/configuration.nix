@@ -20,8 +20,11 @@
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
     gaming
+    greetd
     nvidia
     display-fix
+    hyprland
+    kde
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -63,10 +66,6 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-  };
   security.polkit.enable = true;
   
   environment.systemPackages = with pkgs; [
