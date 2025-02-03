@@ -4,6 +4,9 @@
     enable = true;
     package = pkgs.firefox-bin;
     profiles.default = {
+      # places.sqlite can get corrupted
+      # sqlite3 .mozilla/firefox/<profile>/places.sqlite
+      # delete from moz_places;
       search = {
         default = "DuckDuckGo";
         privateDefault = "DuckDuckGo";
