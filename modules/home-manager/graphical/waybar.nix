@@ -7,9 +7,12 @@
     settings = [
       {
         layer = "top";
-        modules-left = ["hyprland/workspaces" ];
+        modules-left = ["hyprland/workspaces" "tray"];
         modules-center = ["hyprland/window"];
         modules-right = ["cpu" "temperature#cpu" "memory" "wireplumber" "custom/notification" "clock" "custom/power"];
+        tray = {
+          spacing = 4;
+        };
         cpu = {
           format = "  {}%";
         };
@@ -57,7 +60,7 @@
           menu = "on-click";
           menu-file = ./waybar-power-menu.xml;
           menu-actions = {
-            shutdown = "shutdown";
+            shutdown = "systemctl poweroff";
             reboot = "reboot";
             suspend = "systemctl suspend";
             logout = "loginctl terminate-user \"\"";
@@ -137,6 +140,9 @@
       }
       #workspaces {
         outline: none;
+      }
+      #tray {
+        margin-left: 8px;
       }
     '');
   };
