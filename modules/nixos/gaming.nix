@@ -20,4 +20,7 @@
 
   # then do this:
   # protonup -d "$STEAM_EXTRA_COMPAT_TOOLS_PATHS"
+
+  # you might run into issues with vulkan
+  # try running games with dx11 (e.g. -x11)
 }
