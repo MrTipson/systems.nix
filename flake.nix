@@ -26,7 +26,12 @@
     { self, nixpkgs, ... }@inputs:
     {
       nixosConfigurations.nospit = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { 
+          inherit inputs;
+          myconfig = {
+            graphical = false;
+          };
+        };
         system = "x86_64-linux";
         modules = [
           ./hosts/nospit/configuration.nix
@@ -37,7 +42,12 @@
         ];
       };
       nixosConfigurations.masina = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          myconfig = {
+            graphical = true;
+          };
+        };
         system = "x86_64-linux";
         modules = [
           ./hosts/masina/configuration.nix

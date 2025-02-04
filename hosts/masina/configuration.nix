@@ -7,6 +7,7 @@
   lib,
   pkgs,
   inputs,
+  myconfig,
   ...
 }:
 
@@ -53,7 +54,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs; inherit myconfig; };
     useGlobalPkgs = true;
     useUserPackages = true;
     sharedModules = with import ./home-manager; [

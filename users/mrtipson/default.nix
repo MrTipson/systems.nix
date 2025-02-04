@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myconfig, ... }:
 
 {
   imports = with import ../../modules/home-manager; [
@@ -6,8 +6,9 @@
     terminal.superfile
 
     ssh.github
+    ssh.minipc
     ssh.rpi
-
+  ] ++ lib.optionals myconfig.graphical [
     graphical.discord
     graphical.firefox
     graphical.hyprcursor
@@ -32,10 +33,11 @@
   home.packages = with pkgs; [
     nixd
     nixfmt-rfc-style
+    zenith-nvidia # hardware monitor
+  ] ++ lib.optionals myconfig.graphical [
     wl-clipboard
     hyprshot # screenshot tool
     mangohud # hardware overlay
-    zenith-nvidia # hardware monitor
     anytype
   ];
 

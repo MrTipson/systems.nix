@@ -7,6 +7,7 @@
   lib,
   pkgs,
   inputs,
+  myconfig,
   ...
 }:
 
@@ -77,11 +78,11 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs; inherit myconfig; };
     useGlobalPkgs = true;
     useUserPackages = true;
     users = {
-      "tipson" = import ../../users/mrtipson/home.nix;
+      "tipson" = import ../../users/mrtipson;
     };
   };
 

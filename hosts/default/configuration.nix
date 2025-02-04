@@ -27,6 +27,7 @@
   environment.systemPackages = with pkgs; [
     wget
     gnumake
+    ncurses # support different terminals when u ssh (for example)
   ];
 
   networking.firewall.allowedTCPPorts = [ 22 ];
