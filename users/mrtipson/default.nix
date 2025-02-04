@@ -6,6 +6,7 @@
     terminal.superfile
 
     ssh.github
+    ssh.rpi
 
     graphical.discord
     graphical.firefox
