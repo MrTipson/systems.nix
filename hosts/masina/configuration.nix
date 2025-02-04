@@ -20,6 +20,7 @@
   imports = with import ../../modules/nixos; [
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
+    avahi
     gaming
     greetd
     nvidia

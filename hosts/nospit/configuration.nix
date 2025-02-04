@@ -17,11 +17,14 @@
     # grist-core
   ];
 
-  imports = with import ../../modules; [
+  imports = with import ../../modules/nixos; [
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
-    nix.grist-core
-    nix.anytype-heart-grpc
+    grist-core
+    anytype-heart-grpc
+    avahi
+    sops
+    nextcloud
   ];
 
   # Use the systemd-boot EFI boot loader.

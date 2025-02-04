@@ -27,6 +27,7 @@
   environment.systemPackages = with pkgs; [
     wget
     gnumake
+    sops
     ncurses # support different terminals when u ssh (for example)
   ];
 
