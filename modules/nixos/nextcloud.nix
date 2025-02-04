@@ -20,7 +20,10 @@
     config.adminpassFile = config.sops.secrets.default-admin-pass.path;
     config.dbtype = "sqlite";
     settings = {
-      port = 80;
+      trusted_domains = [ "nospit.local" ];
+    };
+    extraApps = {
+      inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks onlyoffice;
     };
   };
 
