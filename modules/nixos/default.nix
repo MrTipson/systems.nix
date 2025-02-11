@@ -1,5 +1,7 @@
 {
+  adguard = import ./adguard.nix;
   avahi = import ./avahi.nix;
+  caddy = import ./caddy.nix;
   display-fix = import ./display-fix.nix;
   gaming = import ./gaming.nix;
   greetd = import ./greetd.nix;

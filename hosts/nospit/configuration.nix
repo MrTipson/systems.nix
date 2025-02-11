@@ -21,10 +21,12 @@
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
     grist-core
+    adguard
     anytype-heart-grpc
     avahi
-    sops
+    caddy
     nextcloud
+    sops
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -96,6 +98,7 @@
   networking.firewall.allowedTCPPorts = [
     22
     80
+    443
   ];
   # services.grist-core = {
   #   enable = true;

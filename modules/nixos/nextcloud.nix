@@ -20,25 +20,41 @@
     config.adminpassFile = config.sops.secrets.default-admin-pass.path;
     config.dbtype = "sqlite";
     settings = {
-      trusted_domains = [ "nospit.local" ];
+      trusted_domains = [ "nextcloud.local" ];
     };
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks onlyoffice;
     };
   };
 
-  services.avahi.extraServiceFiles = {
-    nextcloud = ''
-      <?xml version="1.0" standalone="no"?>
-      <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-      <service-group>
-        <name replace-wildcards="yes">nextcloud</name>
-        <service>
-          <type>_http._tcp</type>
-          <port>80</port>
-          <txt-record>path=/nextcloud</txt-record>
-        </service>
-      </service-group>
-    '';
+  services.nginx.virtualHosts."${config.services.nextcloud.hostName}".listen = [ {
+    addr = "127.0.0.1";
+    port = 3001;
+  } ];
+
+  systemd.services.mDNS-nextcloud = lib.mkIf config.services.avahi.enable {
+    enable = true;
+    after = [ "nextcloud.service" ];
+    wantedBy = [ "default.target" ];
+    description = "mDNS adguard advertisement";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.avahi}/bin/avahi-publish -a -R nextcloud.local 192.168.64.228'';
+    };
   };
+
+  services.caddy.virtualHosts."nextcloud.local".extraConfig = ''
+    reverse_proxy http://localhost:3001
+  '';
+  # services.avahi.extraServiceFiles.nextcloud = ''
+  #   <?xml version="1.0" standalone="no"?>
+  #   <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+  #   <service-group>
+  #     <name replace-wildcards="yes">nextcloud</name>
+  #     <service>
+  #       <type>_http._tcp</type>
+  #       <port>80</port>
+  #     </service>
+  #   </service-group>
+  # '';
 }
