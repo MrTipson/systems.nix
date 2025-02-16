@@ -7,6 +7,7 @@
   greetd = import ./greetd.nix;
   grist-core = import ./grist-core.nix;
   hyprland = import ./hyprland.nix;
+  install-local-ca = import ./install-local-ca.nix;
   kde = import ./kde.nix;
   syncthing = import ./syncthing.nix;
   anytype-heart-grpc = import ./anytype-heart-grpc.nix;
