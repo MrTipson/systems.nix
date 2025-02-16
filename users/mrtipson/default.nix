@@ -8,21 +8,23 @@
     ssh.github
     ssh.minipc
     ssh.rpi
-  ] ++ lib.optionals myconfig.graphical [
-    graphical.discord
-    graphical.firefox
-    graphical.hyprcursor
-    graphical.hyprland
-    graphical.hyprland-nvidia
-    graphical.kitty
-    graphical.pipewire
-    graphical.soteria
-    graphical.stylix
-    graphical.swaync
-    graphical.tofi
-    graphical.vscode
-    graphical.waybar
-  ];
+  ] ++ lib.optionals myconfig.graphical (with graphical; [
+    discord
+    firefox
+    hyprcursor
+    hyprland
+    hyprland-nvidia
+    kitty
+    mpv
+    obs-studio
+    pipewire
+    soteria
+    stylix
+    swaync
+    tofi
+    vscode
+    waybar
+  ]);
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tipson";
