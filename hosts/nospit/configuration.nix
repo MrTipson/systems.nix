@@ -12,19 +12,17 @@
 }:
 
 {
-  nixpkgs.overlays = with import ../../overlays; [
-    #grist-node-sqlite3
-    # grist-core
-  ];
+  nixpkgs.overlays = with import ../../overlays; [ ];
 
   imports = with import ../../modules/nixos; [
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
-    grist-core
     adguard
     anytype-heart-grpc
     avahi
     caddy
+    docker
+    grist
     nextcloud
     sops
   ];
@@ -32,26 +30,6 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-  virtualisation.oci-containers = {
-    backend = "docker";
-    containers = {
-      grist = {
-        image = "gristlabs/grist";
-        ports = [ "8484:8484" ];
-        volumes = [
-          "/var/lib/grist:/persist"
-        ];
-        environment = {
-          GRIST_SANDBOX_FLAVOR = "gvisor";
-        };
-      };
-    };
-  };
 
   networking = {
     nameservers = [
@@ -100,10 +78,6 @@
     80
     443
   ];
-  # services.grist-core = {
-  #   enable = true;
-  #   package = pkgs.grist-core;
-  # };
 
   system.stateVersion = "24.11"; # DO NOT CHANGE https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
 }

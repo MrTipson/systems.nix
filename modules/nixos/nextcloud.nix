@@ -36,7 +36,7 @@
     enable = true;
     after = [ "nextcloud.service" ];
     wantedBy = [ "default.target" ];
-    description = "mDNS adguard advertisement";
+    description = "mDNS nextcloud advertisement";
     serviceConfig = {
       Type = "simple";
       ExecStart = ''${pkgs.avahi}/bin/avahi-publish -a -R nextcloud.local 192.168.64.228'';
@@ -46,15 +46,4 @@
   services.caddy.virtualHosts."nextcloud.local".extraConfig = ''
     reverse_proxy http://localhost:3001
   '';
-  # services.avahi.extraServiceFiles.nextcloud = ''
-  #   <?xml version="1.0" standalone="no"?>
-  #   <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-  #   <service-group>
-  #     <name replace-wildcards="yes">nextcloud</name>
-  #     <service>
-  #       <type>_http._tcp</type>
-  #       <port>80</port>
-  #     </service>
-  #   </service-group>
-  # '';
 }

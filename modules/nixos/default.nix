@@ -3,9 +3,10 @@
   avahi = import ./avahi.nix;
   caddy = import ./caddy.nix;
   display-fix = import ./display-fix.nix;
+  docker = import ./docker.nix;
   gaming = import ./gaming.nix;
   greetd = import ./greetd.nix;
-  grist-core = import ./grist-core.nix;
+  grist = import ./grist.nix;
   hyprland = import ./hyprland.nix;
   kde = import ./kde.nix;
   syncthing = import ./syncthing.nix;
