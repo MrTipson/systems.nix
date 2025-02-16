@@ -8,6 +8,9 @@
     ];
     environment = {
       GRIST_SANDBOX_FLAVOR = "gvisor";
+      GRIST_DOMAIN = "grist.local";  # subdomain you gave grist and your main domain (do not include https://)
+      APP_HOME_URL = "https://grist.local";  # same as above but make sure it has https://
+      APP_DOC_URL = "https://grist.local";  # as above, make sure it has https://
     };
   };
 
