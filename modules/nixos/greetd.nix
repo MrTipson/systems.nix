@@ -17,4 +17,6 @@
       };
     };
   };
+  # Fix kernel logs sometimes appearing over tuigreet
+  systemd.services.greetd.unitConfig.After = [ "multi-user.target" ];
 }
