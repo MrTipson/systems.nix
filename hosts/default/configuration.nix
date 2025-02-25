@@ -24,6 +24,17 @@
   # services.resolved.enable = true;
   services.openssh.enable = true;
 
+  nix = {
+    extraOptions = ''
+      warn-dirty = false
+    '';
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     wget
     gnumake
