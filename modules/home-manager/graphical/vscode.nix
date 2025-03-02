@@ -15,6 +15,9 @@
       "remote.SSH.connectTimeout" = 120;
       "remote.SSH.useLocalServer" = false;
       "terminal.integrated.inheritEnv" = false;
+      "files.associations" = {
+        "*.css" = "tailwindcss";
+      };
     };
   };
 }
