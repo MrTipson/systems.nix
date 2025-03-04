@@ -41,6 +41,7 @@
     hyprshot # screenshot tool
     mangohud # hardware overlay
     anytype
+    ffmpeg
   ];
 
   programs.direnv = {
