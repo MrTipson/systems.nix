@@ -4,90 +4,77 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    settings = [
-      {
-        layer = "top";
-        modules-left = ["hyprland/workspaces" "tray"];
-        modules-center = ["hyprland/window"];
-        modules-right = ["cpu" "temperature#cpu" "memory" "wireplumber" "custom/notification" "clock" "custom/power"];
-        tray = {
-          spacing = 4;
-        };
-        cpu = {
-          format = "  {}%";
-        };
-        margin-top = -2;
-        "temperature#cpu" = {
-          hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
-        };
-        memory = {
-          format = "   {percentage}%";
-        };
-        "hyprland/window" = {
-          separate-outputs = true;
-          icon = true;
-        };
-        clock = {
-          format = "{:%H:%M}";
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
-          calendar = {
-            mode = "year";
-            mode-mon-col = 3;
-            on-scroll = 1;
-            on-click-right = "mode";
-            format = {
-              months = "<span color='#ffead3'><b>{}</b></span>";
-              days = "<span color='#ecc6d9'><b>{}</b></span>";
-              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-              today = "<span color='#1bf902' background='#063800'><b>{}</b></span>";
-            };
+    # doesnt merge with /hosts/masina/home-manager/waybar.nix
+    settings.mainbar = {
+      layer = "top";
+      modules-left = ["hyprland/workspaces" "tray"];
+      modules-center = ["hyprland/window"];
+      modules-right = ["temperature#nvme-1" "temperature#nvme-2" "cpu" "temperature#cpu" "memory" "wireplumber" "custom/notification" "clock" "custom/power"];
+      tray = {
+        spacing = 4;
+      };
+      cpu = {
+        format = "  {}%";
+      };
+      margin-top = -2;
+      "temperature#nvme-1".format = "   {temperatureC}°C";
+      memory = {
+        format = "   {percentage}%";
+      };
+      "hyprland/window" = {
+        separate-outputs = true;
+        icon = true;
+      };
+      clock = {
+        format = "{:%H:%M}";
+        tooltip-format = "<tt><small>{calendar}</small></tt>";
+        calendar = {
+          mode = "year";
+          mode-mon-col = 3;
+          on-scroll = 1;
+          on-click-right = "mode";
+          format = {
+            months = "<span color='#ffead3'><b>{}</b></span>";
+            days = "<span color='#ecc6d9'><b>{}</b></span>";
+            weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+            today = "<span color='#1bf902' background='#063800'><b>{}</b></span>";
           };
         };
-        wireplumber = {
-          format = "   {volume}%";
-          format-muted = "";
-          on-click = "pwvucontrol";
-          on-click-middle = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          on-click-right = "qpwgraph";
-          tooltip = false;
-          max-volume = 150;
-          scroll-step = 0.5;
-        };
+      };
 
-        "custom/power" = {
-          format = "⏻";
-          tooltip = false;
-          menu = "on-click";
-          menu-file = ./waybar-power-menu.xml;
-          menu-actions = {
-            shutdown = "systemctl poweroff";
-            reboot = "reboot";
-            suspend = "systemctl suspend";
-            logout = "loginctl terminate-user \"\"";
-          };
+      "custom/power" = {
+        format = "⏻";
+        tooltip = false;
+        menu = "on-click";
+        menu-file = ./waybar-power-menu.xml;
+        menu-actions = {
+          shutdown = "systemctl poweroff";
+          reboot = "reboot";
+          suspend = "systemctl suspend";
+          logout = "loginctl terminate-user \"\"";
         };
-        "custom/notification" = {
-          "tooltip" = false;
-          "format" = "{} {icon}";
-          "format-icons" = {
-            "notification" = "<span foreground='red'><sup></sup></span>";
-            "none" = "";
-            "dnd-notification" = "<span foreground='red'><sup></sup></span>";
-            "dnd-none" = "";
-            "inhibited-notification" = "<span foreground='red'><sup></sup></span>";
-            "inhibited-none" = "";
-            "dnd-inhibited-notification" = "<span foreground='red'><sup></sup></span>";
-            "dnd-inhibited-none" = "";
-          };
-          "return-type" = "json";
-          "exec-if" = "which swaync-client";
-          "exec" = "swaync-client -swb";
-          "on-click" = "swaync-client -t -sw";
-          "on-click-right" = "swaync-client -d -sw";
-          "escape" = true;
+      };
+      "custom/notification" = {
+        "tooltip" = false;
+        "format" = "{} {icon}";
+        "format-icons" = {
+          "notification" = "<span foreground='red'><sup></sup></span>";
+          "none" = "";
+          "dnd-notification" = "<span foreground='red'><sup></sup></span>";
+          "dnd-none" = "";
+          "inhibited-notification" = "<span foreground='red'><sup></sup></span>";
+          "inhibited-none" = "";
+          "dnd-inhibited-notification" = "<span foreground='red'><sup></sup></span>";
+          "dnd-inhibited-none" = "";
         };
-      }
-    ];
+        "return-type" = "json";
+        "exec-if" = "which swaync-client";
+        "exec" = "swaync-client -swb";
+        "on-click" = "swaync-client -t -sw";
+        "on-click-right" = "swaync-client -d -sw";
+        "escape" = true;
+      };
+    };
     # env GTK_DEBUG=interactive waybar -s waybar-style.css
     style = with config.lib.stylix.colors.withHashtag; /*css*/ ''
       @define-color base00 ${base00}; @define-color base01 ${base01}; @define-color base02 ${base02}; @define-color base03 ${base03};
