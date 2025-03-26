@@ -24,10 +24,5 @@
     shellInit = ''
       source ~/.config/fish/functions/print-time.fish
     '';
-    loginShellInit = ''
-      if uwsm check may-start && uwsm select; 
-        exec systemd-cat -t uwsm_start uwsm start default
-      end
-    '';
   };
 }
