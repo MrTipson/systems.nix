@@ -1,6 +1,7 @@
 {
   adguard = import ./adguard.nix;
   avahi = import ./avahi.nix;
+  banked-rank-it = import ./banked-rank-it.nix;
   caddy = import ./caddy.nix;
   display-fix = import ./display-fix.nix;
   docker = import ./docker.nix;

@@ -20,6 +20,7 @@
     adguard
     anytype-heart-grpc
     avahi
+    banked-rank-it
     caddy
     docker
     grist
