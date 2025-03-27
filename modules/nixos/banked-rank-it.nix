@@ -1,11 +1,11 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 {
   sops.secrets.bank-it-bot = {
     mode = "0440";
-    sopsFile = ../../secrets/banked-rank-it.yaml;
+    sopsFile = ../../secrets/banked-rank-it.env;
+    format = "dotenv";
     owner = "bread";
     group = "bread";
-    key = "token";
   };
 
   users.users.bread = {
@@ -25,15 +25,8 @@
       Group = "bread";
       WorkingDirectory = "/home/bread";
       Type = "simple";
-      ExecStart =
-        let flake = builtins.getFlake "github:mrtipson/banked-rank-it/6beace3f383c5c91cda0b72c94abed2046204478";
-            package = flake.packages."x86_64-linux".default;
-            token-path = config.sops.secrets.bank-it-bot.path;
-        in ''${pkgs.bash}/bin/bash -c "TOKEN=$(cat ${token-path}) ${package}/bin/banked-rank-it"'';
-    };
-    environment = {
-      MESSAGE_ID = "1354078262401175625";
-      CHANNEL_ID = "1354076768256135251";
+      EnvironmentFile = config.sops.secrets.bank-it-bot.path;
+      ExecStart = "${inputs.banked-rank-it.packages."x86_64-linux".default}/bin/banked-rank-it";
     };
   };
 }

@@ -21,6 +21,8 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    banked-rank-it.url = "github:mrtipson/banked-rank-it";
   };
   outputs =
     { self, nixpkgs, ... }@inputs:
