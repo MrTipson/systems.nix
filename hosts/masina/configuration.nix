@@ -27,6 +27,7 @@
     display-fix
     hyprland
     kde
+    tailscale
   ];
 
   # Use the systemd-boot EFI boot loader.

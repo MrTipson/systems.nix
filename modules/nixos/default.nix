@@ -15,4 +15,5 @@
   nextcloud = import ./nextcloud.nix;
   nvidia = import ./nvidia.nix;
   sops = import ./sops.nix;
+  tailscale = import ./tailscale.nix;
 }
