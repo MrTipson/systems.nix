@@ -56,6 +56,11 @@
     ];
     shell = pkgs.fish;
   };
+  users.users.bimbo = {
+    isNormalUser = true;
+    extraGroups = [ ];
+    shell = pkgs.fish;
+  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; inherit myconfig; };
