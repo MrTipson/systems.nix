@@ -22,40 +22,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    banked-rank-it.url = "github:mrtipson/banked-rank-it";
-  };
-  outputs =
-    { self, nixpkgs, ... }@inputs:
-    {
-      nixosConfigurations.nospit = nixpkgs.lib.nixosSystem {
-        specialArgs = { 
-          inherit inputs;
-          myconfig = {
-            graphical = false;
-          };
-        };
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/nospit/configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.sops-nix.nixosModules.sops
-          # inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-          # inputs.anytype-heart-grpc.nixosModules.anytype-heart-grpc
-        ];
-      };
-      nixosConfigurations.masina = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          myconfig = {
-            graphical = true;
-          };
-        };
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/masina/configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.sops-nix.nixosModules.sops
-        ];
-      };
+    banked-rank-it = {
+      url = "github:mrtipson/banked-rank-it";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
+  outputs = inputs: {
+    nixosConfigurations = import ./hosts inputs;
+  };
 }
