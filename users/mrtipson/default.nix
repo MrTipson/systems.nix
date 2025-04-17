@@ -52,7 +52,7 @@
   programs.git = {
     enable = true;
     userName = "MrTipson";
-    userEmail = "gunfight7.gf@gmail.com";
+    userEmail = "mr@tipson.xyz";
   };
 
   home.file = {
