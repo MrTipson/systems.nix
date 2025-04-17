@@ -42,6 +42,7 @@
     mangohud # hardware overlay
     anytype
     ffmpeg
+    xdg-utils
   ];
 
   programs.direnv = {
