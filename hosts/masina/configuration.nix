@@ -7,17 +7,13 @@
   lib,
   pkgs,
   inputs,
-  myconfig,
   ...
 }:
 
 {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = with import ../../overlays; [
-    inputs.nur.overlays.default
-  ];
 
-  imports = with import ../../modules/nixos; [
+  imports = with import ../../modules; [
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
     avahi
@@ -62,23 +58,10 @@
     shell = pkgs.fish;
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; inherit myconfig; };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    sharedModules = with import ./home-manager; [
-      hyprland
-      waybar
-      inputs.stylix.homeManagerModules.stylix
-    ];
-    users = {
-      "tipson" = import ../../users/mrtipson;
-    };
-  };
-
   security.polkit.enable = true;
   
   environment.systemPackages = with pkgs; [
+    sshfs
   ];
 
   networking.firewall.allowedTCPPorts = [

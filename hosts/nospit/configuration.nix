@@ -7,14 +7,11 @@
   lib,
   pkgs,
   inputs,
-  myconfig,
   ...
 }:
 
 {
-  nixpkgs.overlays = with import ../../overlays; [ ];
-
-  imports = with import ../../modules/nixos; [
+  imports = with import ../../modules; [
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
     adguard
@@ -61,17 +58,7 @@
     shell = pkgs.fish;
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; inherit myconfig; };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users = {
-      "tipson" = import ../../users/mrtipson;
-    };
-  };
-
   environment.systemPackages = with pkgs; [
-    #anytype-heart-grpc
   ];
 
   networking.firewall.allowedTCPPorts = [
