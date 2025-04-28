@@ -8,6 +8,7 @@
   gaming = import ./gaming.nix;
   greetd = import ./greetd.nix;
   grist = import ./grist.nix;
+  grub = import ./grub.nix;
   hyprland = import ./hyprland.nix;
   kde = import ./kde.nix;
   syncthing = import ./syncthing.nix;

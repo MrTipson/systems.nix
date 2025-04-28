@@ -1,0 +1,45 @@
+desktop-image: "bg.png"
+
+terminal-font: "Unifont Regular 16"
+
++ boot_menu {
+    left = 49%
+    width = 42%
+    top = 15%
+    height = 55%
+    item_color = "#1b0102"
+    selected_item_color = "#730409"
+    selected_item_pixmap_style = "selected_item_*.png"
+    item_height = 20
+	item_padding = 0
+	item_spacing = 5
+    font = "Barlow Semi Condensed Regular 16"
+    # We can remove extra space because we're not providing icons
+    icon_width = 0
+    item_icon_space = 5
+    scrollbar = true
+    scrollbar_slice = center
+    scrollbar_width = 3
+    scrollbar_left_pad = 10
+    scrollbar_frame = "scrollbar_frame_*.png"
+    scrollbar_thumb = "scrollbar_thumb_*.png"
+}
+
++ label {
+    left = 49%
+    top = 10%
+    width = 42%
+    color = "#1b0102"
+    font = "Barlow Semi Condensed Regular 16"
+    text = "Where are we going?"
+}
+
++ label {
+    id = "__timeout__"
+    left = 49%
+    top = 10%
+    width = 42%
+    align = right
+    color = "#1b0102"
+    text = "%d"
+}
