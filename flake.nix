@@ -11,6 +11,11 @@
       url = "github:mrtipson/banked-rank-it";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dummy-session = {
+      url = "github:mrtipson/dummy-session";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs: import ./hosts inputs;
 }

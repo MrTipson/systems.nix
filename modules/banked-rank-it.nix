@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, lib, config, inputs, system, ... }:
 {
   sops.secrets.bank-it-bot = {
     mode = "0440";
@@ -26,7 +26,7 @@
       WorkingDirectory = "/home/bread";
       Type = "simple";
       EnvironmentFile = config.sops.secrets.bank-it-bot.path;
-      ExecStart = "${inputs.banked-rank-it.packages."x86_64-linux".default}/bin/banked-rank-it";
+      ExecStart = "${inputs.banked-rank-it.packages.${system}.default}/bin/banked-rank-it";
     };
   };
 }

@@ -42,6 +42,26 @@
         "type": "github"
       }
     },
+    "dummy-session": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746466199,
+        "narHash": "sha256-vCH4i6wj6Rc/r7enamWy81k/iK71Mr1oayBX4yN3pcc=",
+        "owner": "mrtipson",
+        "repo": "dummy-session",
+        "rev": "a3c7f2ad7247f6db1eece0051136c39673d98042",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrtipson",
+        "repo": "dummy-session",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -152,6 +172,7 @@
     "root": {
       "inputs": {
         "banked-rank-it": "banked-rank-it",
+        "dummy-session": "dummy-session",
         "nixpkgs": "nixpkgs_2",
         "sops-nix": "sops-nix"
       }
