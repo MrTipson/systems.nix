@@ -22,7 +22,6 @@
     grub
     nvidia
     display-fix
-    hyprland
     kde
     tailscale
   ];

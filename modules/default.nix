@@ -9,10 +9,8 @@
   greetd = import ./greetd.nix;
   grist = import ./grist.nix;
   grub = import ./grub.nix;
-  hyprland = import ./hyprland.nix;
   kde = import ./kde.nix;
   syncthing = import ./syncthing.nix;
-  anytype-heart-grpc = import ./anytype-heart-grpc.nix;
   nextcloud = import ./nextcloud.nix;
   nvidia = import ./nvidia.nix;
   sops = import ./sops.nix;
