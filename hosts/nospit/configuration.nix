@@ -15,7 +15,6 @@
     ../default/configuration.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
     adguard
-    anytype-heart-grpc
     avahi
     banked-rank-it
     caddy

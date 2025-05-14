@@ -7,7 +7,7 @@
 {
   sops.secrets.default-admin-pass = {
     mode = "0440";
-    sopsFile = ../../secrets/nextcloud.yaml;
+    sopsFile = ../secrets/nextcloud.yaml;
     owner = "nextcloud";
     group = "nextcloud";
     key = "default-admin-pass";

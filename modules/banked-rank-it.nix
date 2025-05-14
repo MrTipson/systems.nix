@@ -1,8 +1,8 @@
-{ pkgs, lib, config, inputs, system, ... }:
+{ pkgs, lib, config, inputs, ... }:
 {
   sops.secrets.bank-it-bot = {
     mode = "0440";
-    sopsFile = ../../secrets/banked-rank-it.env;
+    sopsFile = ../secrets/banked-rank-it.env;
     format = "dotenv";
     owner = "bread";
     group = "bread";
@@ -26,7 +26,7 @@
       WorkingDirectory = "/home/bread";
       Type = "simple";
       EnvironmentFile = config.sops.secrets.bank-it-bot.path;
-      ExecStart = "${inputs.banked-rank-it.packages.${system}.default}/bin/banked-rank-it";
+      ExecStart = "${inputs.banked-rank-it.packages.${pkgs.system}.default}/bin/banked-rank-it";
     };
   };
 }
