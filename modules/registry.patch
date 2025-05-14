@@ -1,0 +1,27 @@
+diff --git a/src/libflake/flake.cc b/src/libflake/flake.cc
+index 987c9f610..6fea68684 100644
+--- a/src/libflake/flake.cc
++++ b/src/libflake/flake.cc
+@@ -394,7 +394,7 @@ LockedFlake lockFlake(
+ 
+     auto useRegistries = lockFlags.useRegistries.value_or(settings.useRegistries);
+     auto useRegistriesTop = useRegistries ? fetchers::UseRegistries::All : fetchers::UseRegistries::No;
+-    auto useRegistriesInputs = useRegistries ? fetchers::UseRegistries::Limited : fetchers::UseRegistries::No;
++    auto useRegistriesInputs = useRegistries ? fetchers::UseRegistries::All : fetchers::UseRegistries::No;
+ 
+     auto flake = getFlake(
+         state,
+diff --git a/tests/functional/flakes/flakes.sh b/tests/functional/flakes/flakes.sh
+index e8b051198..6032868fd 100755
+--- a/tests/functional/flakes/flakes.sh
++++ b/tests/functional/flakes/flakes.sh
+@@ -225,7 +225,8 @@ mv "$registry.tmp" "$registry"
+ mkdir -p "$TEST_HOME/.config/nix"
+ ln -sfn "$registry" "$TEST_HOME/.config/nix/registry.json"
+ nix flake metadata --flake-registry '' flake1
+-expectStderr 1 nix flake update --flake-registry '' --flake "$flake3Dir" | grepQuiet "cannot find flake 'flake:flake1' in the flake registries"
++nix flake update --flake-registry '' --flake "$flake3Dir"
++[[ $(jq -c .nodes.flake1.original.type "$flake3Dir/flake.lock") =~ 'indirect' ]]
+ rm "$TEST_HOME/.config/nix/registry.json"
+ 
+ # Test whether flakes are registered as GC roots for offline use.

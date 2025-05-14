@@ -13,6 +13,7 @@
   syncthing = import ./syncthing.nix;
   nextcloud = import ./nextcloud.nix;
   nvidia = import ./nvidia.nix;
+  registry = import ./registry.nix;
   sops = import ./sops.nix;
   tailscale = import ./tailscale.nix;
 }

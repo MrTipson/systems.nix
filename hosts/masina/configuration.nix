@@ -21,6 +21,7 @@
     greetd
     grub
     nvidia
+    registry
 #    display-fix
     kde
     tailscale

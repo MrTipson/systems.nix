@@ -5,7 +5,6 @@
     "nix-command"
     "flakes"
   ];
-  nix.registry."nixpkgs".flake = inputs.nixpkgs;
 
   time.timeZone = "Europe/Ljubljana";
 
