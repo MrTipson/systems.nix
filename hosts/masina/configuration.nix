@@ -21,6 +21,7 @@
     grub
     nogreet
     nvidia
+    pipewire
     registry
 #    display-fix
     kde

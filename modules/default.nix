@@ -15,6 +15,7 @@
   nextcloud = import ./nextcloud.nix;
   nogreet = import ./nogreet.nix;
   nvidia = import ./nvidia.nix;
+  pipewire = import ./pipewire.nix;
   registry = import ./registry.nix;
   sops = import ./sops.nix;
   tailscale = import ./tailscale.nix;
