@@ -20,6 +20,7 @@
     caddy
     docker
     grist
+    kiwix-serve
     nextcloud
     sops
   ];
