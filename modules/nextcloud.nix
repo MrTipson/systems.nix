@@ -15,7 +15,7 @@
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud30;
+    package = pkgs.nextcloud31;
     hostName = "localhost";
     config.adminpassFile = config.sops.secrets.default-admin-pass.path;
     config.dbtype = "sqlite";
