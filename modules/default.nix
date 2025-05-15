@@ -12,6 +12,7 @@
   kde = import ./kde.nix;
   syncthing = import ./syncthing.nix;
   nextcloud = import ./nextcloud.nix;
+  nogreet = import ./nogreet.nix;
   nvidia = import ./nvidia.nix;
   registry = import ./registry.nix;
   sops = import ./sops.nix;

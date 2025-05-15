@@ -18,8 +18,8 @@
     ./hardware-configuration.nix # Include the results of the hardware scan.
     avahi
     gaming
-    greetd
     grub
+    nogreet
     nvidia
     registry
 #    display-fix
