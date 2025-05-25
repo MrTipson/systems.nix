@@ -3,8 +3,9 @@
   lib,
   config,
   ...
-}:
-{
+}: let 
+  advertise = import ./_avahi.nix pkgs;
+in {
   sops.secrets.default-admin-pass = {
     mode = "0440";
     sopsFile = ../secrets/nextcloud.yaml;
@@ -32,16 +33,8 @@
     port = 3001;
   } ];
 
-  systemd.services.mDNS-nextcloud = lib.mkIf config.services.avahi.enable {
-    enable = true;
-    after = [ "nextcloud.service" ];
-    wantedBy = [ "default.target" ];
-    description = "mDNS nextcloud advertisement";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.avahi}/bin/avahi-publish -a -R nextcloud.local 192.168.64.228'';
-    };
-  };
+  systemd.services.mDNS-nextcloud = lib.mkIf config.services.avahi.enable
+    (advertise "nextcloud" [ "nextcloud.service" ]);
 
   services.caddy.virtualHosts."nextcloud.local".extraConfig = ''
     reverse_proxy http://localhost:3001

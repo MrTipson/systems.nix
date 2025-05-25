@@ -1,18 +1,10 @@
-{ pkgs, lib, config, ... }:
-{
+{ pkgs, lib, config, ... }: let 
+  advertise = import ./_avahi.nix pkgs;
+in {
   services.caddy.enable = true;
 
-
-  systemd.services.mDNS-caddy-ca = lib.mkIf config.services.avahi.enable {
-    enable = true;
-    after = [ "caddy.service" ];
-    wantedBy = [ "default.target" ];
-    description = "mDNS caddy CA advertisement";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.avahi}/bin/avahi-publish -a -R ca.local 192.168.64.228'';
-    };
-  };
+  systemd.services.mDNS-caddy-ca = lib.mkIf config.services.avahi.enable 
+    (advertise "ca" [ "caddy.service" ]);
   
   services.caddy.virtualHosts."ca.local".extraConfig = lib.mkIf config.services.avahi.enable ''
     header Content-Disposition "attachment"

@@ -8,7 +8,9 @@
       sha256 = "sha256:0inrlxxyx8czpyhfznbm57xksblw1a3aj3gsx7yl103zr8hyxqhw"; }
   ];
   port = builtins.toString 3002;
+  advertise = import ./_avahi.nix pkgs;
 in {
+  # TODO: fix user
   systemd.services.kiwix = {
     enable = true;
     wantedBy = [ "default.target" ];
@@ -19,16 +21,8 @@ in {
     };
   };
 
-  systemd.services.mDNS-kiwix = {
-    enable = true;
-    after = [ "kiwix.service" ];
-    wantedBy = [ "default.target" ];
-    description = "mDNS kiwix advertisement";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.avahi}/bin/avahi-publish -a -R wiki.local 192.168.64.228'';
-    };
-  };
+  systemd.services.mDNS-kiwix = lib.mkIf config.services.avahi.enable 
+    (advertise "wiki" [ "kiwix.service" ]);
 
   users.users.wikix = {
     isNormalUser = true;

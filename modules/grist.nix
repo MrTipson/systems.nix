@@ -1,5 +1,6 @@
-{ pkgs, lib, config, ... }:
-{
+{ pkgs, lib, config, ... }: let 
+  advertise = import ./_avahi.nix pkgs;
+in {
   virtualisation.oci-containers.containers.grist = {
     image = "gristlabs/grist";
     ports = [ "8484:8484" ];
@@ -14,16 +15,8 @@
     };
   };
 
-  systemd.services.mDNS-grist = lib.mkIf config.services.avahi.enable {
-    enable = true;
-    after = [ "docker-grist.service" ];
-    wantedBy = [ "default.target" ];
-    description = "mDNS grist advertisement";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.avahi}/bin/avahi-publish -a -R grist.local 192.168.64.228'';
-    };
-  };
+  systemd.services.mDNS-grist = lib.mkIf config.services.avahi.enable
+    (advertise "grist" [ "docker-grist.service" ]);
 
   services.caddy.virtualHosts."grist.local".extraConfig = ''
     reverse_proxy http://localhost:8484
