@@ -9,7 +9,6 @@
   greetd = import ./greetd.nix;
   grist = import ./grist.nix;
   grub = import ./grub.nix;
-  kde = import ./kde.nix;
   kiwix-serve = import ./kiwix-serve.nix;
   syncthing = import ./syncthing.nix;
   nextcloud = import ./nextcloud.nix;

@@ -24,7 +24,6 @@
     pipewire
     registry
 #    display-fix
-    kde
     tailscale
   ];
 
