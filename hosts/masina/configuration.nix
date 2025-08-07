@@ -62,6 +62,7 @@
   
   environment.systemPackages = with pkgs; [
     sshfs
+    home-manager
   ];
 
   networking.firewall.allowedTCPPorts = [
