@@ -49,6 +49,7 @@
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
       "docker"
+      "networkmanager"
     ];
     shell = pkgs.fish;
   };
@@ -58,7 +59,8 @@
     shell = pkgs.fish;
   };
 
-  security.polkit.enable = true;
+  networking.networkmanager.enable = true;
+  # security.polkit.enable = true;
   
   environment.systemPackages = with pkgs; [
     sshfs
