@@ -19,6 +19,7 @@
     avahi
     gaming
     grub
+    multiseat
     nogreet
     pipewire
     registry
@@ -42,6 +43,7 @@
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
       "docker"
+      "pipewire"
       "networkmanager"
     ];
     shell = pkgs.fish;

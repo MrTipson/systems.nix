@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    tipson-software = {
+      url = "github:mrtipson/software.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     dummy-session = {
       url = "github:mrtipson/dummy-session";
       inputs.nixpkgs.follows = "nixpkgs";
