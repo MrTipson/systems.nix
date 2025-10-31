@@ -1,21 +1,21 @@
 diff --git a/src/libflake/flake.cc b/src/libflake/flake.cc
-index 987c9f610..6fea68684 100644
+index 8e7e2be26..5d8834668 100644
 --- a/src/libflake/flake.cc
 +++ b/src/libflake/flake.cc
-@@ -394,7 +394,7 @@ LockedFlake lockFlake(
+@@ -420,7 +420,7 @@ lockFlake(const Settings & settings, EvalState & state, const FlakeRef & topRef,
  
      auto useRegistries = lockFlags.useRegistries.value_or(settings.useRegistries);
      auto useRegistriesTop = useRegistries ? fetchers::UseRegistries::All : fetchers::UseRegistries::No;
 -    auto useRegistriesInputs = useRegistries ? fetchers::UseRegistries::Limited : fetchers::UseRegistries::No;
 +    auto useRegistriesInputs = useRegistries ? fetchers::UseRegistries::All : fetchers::UseRegistries::No;
  
-     auto flake = getFlake(
-         state,
+     auto flake = getFlake(state, topRef, useRegistriesTop, {});
+ 
 diff --git a/tests/functional/flakes/flakes.sh b/tests/functional/flakes/flakes.sh
-index e8b051198..6032868fd 100755
+index 5b1da0f02..7ac968e24 100755
 --- a/tests/functional/flakes/flakes.sh
 +++ b/tests/functional/flakes/flakes.sh
-@@ -225,7 +225,8 @@ mv "$registry.tmp" "$registry"
+@@ -226,7 +226,8 @@ mv "$registry.tmp" "$registry"
  mkdir -p "$TEST_HOME/.config/nix"
  ln -sfn "$registry" "$TEST_HOME/.config/nix/registry.json"
  nix flake metadata --flake-registry '' flake1
