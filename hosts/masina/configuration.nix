@@ -20,7 +20,6 @@
     gaming
     grub
     nogreet
-    nvidia
     pipewire
     registry
 #    display-fix
@@ -35,16 +34,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-  virtualisation.oci-containers = {
-    backend = "docker";
-    containers = {
-    };
-  };
   networking.hostName = "masina"; # Define your hostname.
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -63,8 +52,11 @@
     shell = pkgs.fish;
   };
 
+  services.upower.enable = true;
   networking.networkmanager.enable = true;
+  services.udisks2.enable = true;
   # security.polkit.enable = true;
+  programs.dconf.enable = true; # for home manager/stylix
   
   environment.systemPackages = with pkgs; [
     sshfs
