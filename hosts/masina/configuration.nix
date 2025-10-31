@@ -26,6 +26,10 @@
 #    display-fix
     tailscale
   ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.efi.canTouchEfiVariables = true;
