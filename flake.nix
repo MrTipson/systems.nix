@@ -12,8 +12,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    tipson-software = {
-      url = "github:mrtipson/software.nix";
+    multiseat-nix = {
+      url = "github:mrtipson/multiseat-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

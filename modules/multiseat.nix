@@ -1,12 +1,11 @@
 {
   config,
-  lib,
   pkgs,
   inputs,
   ...
 }:
 let
-  inherit (inputs.tipson-software.packages.${pkgs.system})
+  inherit (inputs.multiseat-nix.packages.${pkgs.system})
     cage
     drm-lease-manager
     ;

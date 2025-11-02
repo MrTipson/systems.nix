@@ -96,6 +96,26 @@
         "type": "github"
       }
     },
+    "multiseat-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762088155,
+        "narHash": "sha256-L8tCG4EfbhY8szmA0zp68AFH50v9rnqyyh+PZkwQ22A=",
+        "owner": "mrtipson",
+        "repo": "multiseat-nix",
+        "rev": "5a057f0643bb21c0c4247e2c44ff91ba04c46dcb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrtipson",
+        "repo": "multiseat-nix",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1729850857,
@@ -173,9 +193,9 @@
       "inputs": {
         "banked-rank-it": "banked-rank-it",
         "dummy-session": "dummy-session",
+        "multiseat-nix": "multiseat-nix",
         "nixpkgs": "nixpkgs_2",
-        "sops-nix": "sops-nix",
-        "tipson-software": "tipson-software"
+        "sops-nix": "sops-nix"
       }
     },
     "slimlock": {
@@ -233,26 +253,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tipson-software": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1761945173,
-        "narHash": "sha256-rHLT/qHiwxS4efdYJMUvPlL49r97+0Ul9b/NpDkGB9I=",
-        "owner": "mrtipson",
-        "repo": "software.nix",
-        "rev": "845aa1408314e3909bcd1a5b5987c6d62edfdfcf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mrtipson",
-        "repo": "software.nix",
         "type": "github"
       }
     }
