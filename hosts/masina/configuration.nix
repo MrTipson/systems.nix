@@ -35,6 +35,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
+  # virtualisation.waydroid.enable = true;
+
   networking.hostName = "masina"; # Define your hostname.
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
