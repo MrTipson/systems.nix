@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (inputs.tipson-software.packages.${pkgs.system}.packages)
+  inherit (inputs.tipson-software.packages.${pkgs.system})
     cage
     drm-lease-manager
     ;
@@ -68,8 +68,10 @@ in
     wantedBy = [ "multi-user.target" ];
     description = "DRM Lease Manager";
     serviceConfig = {
-      Type = "simple";
-      ExecStartPre = "${pkgs.coreutils}/bin/install -dm777 /run/drm-lease-manager";
+      Type = "exec";
+      Group = "users";
+      UMask = "002";
+      ExecStartPre = "${pkgs.coreutils}/bin/install -dm755 /run/drm-lease-manager";
       ExecStart = "${drm-lease-manager}/bin/drm-lease-manager -v /dev/dri/card1";
     };
   };
