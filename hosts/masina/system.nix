@@ -1,9 +1,8 @@
-{ self, nixpkgs, ... }@inputs:
-rec {
-  specialArgs = { inherit inputs system; };
+sources: {
+  specialArgs = { inherit sources; };
   system = "x86_64-linux";
   modules = [
     ./configuration.nix
-    inputs.sops-nix.nixosModules.sops
+    "${sources.sops-nix}/modules/sops"
   ];
 }

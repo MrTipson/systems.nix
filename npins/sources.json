@@ -1,0 +1,63 @@
+{
+  "pins": {
+    "banked-rank-it": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "mrtipson",
+        "repo": "banked-rank-it"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "6beace3f383c5c91cda0b72c94abed2046204478",
+      "url": "https://github.com/mrtipson/banked-rank-it/archive/6beace3f383c5c91cda0b72c94abed2046204478.tar.gz",
+      "hash": "0l22vxcnqfvn436r28r4q41jnxsh5d5z59xaxmzsbfz305x519gq"
+    },
+    "dummy-session": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "mrtipson",
+        "repo": "dummy-session"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "a3c7f2ad7247f6db1eece0051136c39673d98042",
+      "url": "https://github.com/mrtipson/dummy-session/archive/a3c7f2ad7247f6db1eece0051136c39673d98042.tar.gz",
+      "hash": "1ix5fwiy6mr0ddlbscpmms43yngkn9jnm9xpmwzigs93mj5zh8dw"
+    },
+    "multiseat-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "mrtipson",
+        "repo": "multiseat-nix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "0a1676a37f4b118ae9804a32c1df624de3413532",
+      "url": "https://github.com/mrtipson/multiseat-nix/archive/0a1676a37f4b118ae9804a32c1df624de3413532.tar.gz",
+      "hash": "1wvdc43m4bj7svvmr975gv14l2islmmhx7qbh0j82596pyky6jww"
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre913981.7d853e518814/nixexprs.tar.xz",
+      "hash": "1cpg513zly625rw05kbz1hvfiqcrwbd71c1bqhp61sh6ng8ifg4c"
+    },
+    "sops-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Mic92",
+        "repo": "sops-nix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "443a7f2e7e118c4fc63b7fae05ab3080dd0e5c63",
+      "url": "https://github.com/Mic92/sops-nix/archive/443a7f2e7e118c4fc63b7fae05ab3080dd0e5c63.tar.gz",
+      "hash": "1mj85yd3bknzpvnnnpg72qhvsp23pjjndskn3lxx4f7ns5ymhr45"
+    }
+  },
+  "version": 5
+}

@@ -6,7 +6,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -22,7 +21,6 @@
     multiseat
     nogreet
     pipewire
-    registry
 #    display-fix
     tailscale
   ];

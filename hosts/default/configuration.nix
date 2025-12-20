@@ -1,9 +1,9 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
+  imports = [ ../../modules/npins.nix ];
   # Enable flakes
   nix.settings.experimental-features = [
     "nix-command"
-    "flakes"
   ];
 
   time.timeZone = "Europe/Ljubljana";

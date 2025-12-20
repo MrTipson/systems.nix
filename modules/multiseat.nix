@@ -1,11 +1,12 @@
 {
   config,
   pkgs,
-  inputs,
+  sources,
   ...
 }:
 let
-  inherit (inputs.multiseat-nix.packages.${pkgs.system})
+  multiseat-nix = import sources.multiseat-nix { overrides = sources; };
+  inherit (multiseat-nix.packages)
     cage
     drm-lease-manager
     ;
