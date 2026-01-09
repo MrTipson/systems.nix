@@ -17,6 +17,7 @@
   nvidia = import ./nvidia.nix;
   pipewire = import ./pipewire.nix;
   registry = import ./registry.nix;
+  share-network = import ./share-network.nix;
   sops = import ./sops.nix;
   tailscale = import ./tailscale.nix;
   zfs = import ./zfs.nix;

@@ -1,4 +1,13 @@
-{ pkgs, lib, config, inputs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  sources,
+  ...
+}:
+let
+  inherit ((import sources.banked-rank-it sources).packages) banked-rank-it;
+in
 {
   sops.secrets.bank-it-bot = {
     mode = "0440";
@@ -26,7 +35,7 @@
       WorkingDirectory = "/home/bread";
       Type = "simple";
       EnvironmentFile = config.sops.secrets.bank-it-bot.path;
-      ExecStart = "${inputs.banked-rank-it.packages.${pkgs.system}.default}/bin/banked-rank-it";
+      ExecStart = lib.getExe' banked-rank-it "banked-rank-it";
     };
   };
 }

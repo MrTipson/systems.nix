@@ -9,9 +9,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "6beace3f383c5c91cda0b72c94abed2046204478",
-      "url": "https://github.com/mrtipson/banked-rank-it/archive/6beace3f383c5c91cda0b72c94abed2046204478.tar.gz",
-      "hash": "0l22vxcnqfvn436r28r4q41jnxsh5d5z59xaxmzsbfz305x519gq"
+      "revision": "ed1674816e99f78d60dbe9de99fab75e77dc1d93",
+      "url": "https://github.com/mrtipson/banked-rank-it/archive/ed1674816e99f78d60dbe9de99fab75e77dc1d93.tar.gz",
+      "hash": "0v3n33m204p4ayd1p0qhycxm56k2mqr5d2bkqz2q8pgs5z46hld8"
     },
     "dummy-session": {
       "type": "Git",
