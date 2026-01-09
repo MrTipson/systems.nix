@@ -19,4 +19,5 @@
   registry = import ./registry.nix;
   sops = import ./sops.nix;
   tailscale = import ./tailscale.nix;
+  zfs = import ./zfs.nix;
 }
