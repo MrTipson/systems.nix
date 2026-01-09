@@ -1,7 +1,11 @@
-{ config, pkgs, ...}: 
-{ 
+{ config, pkgs, ... }:
+{
   sops = {
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/tipson/.config/sops/age/keys.txt";
   };
+
+  environment.systemPackages = with pkgs; [
+    sops
+  ];
 }

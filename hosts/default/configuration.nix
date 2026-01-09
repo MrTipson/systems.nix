@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [ ../../modules/npins.nix ];
-  # Enable flakes
   nix.settings.experimental-features = [
     "nix-command"
   ];
@@ -38,9 +37,5 @@
   environment.systemPackages = with pkgs; [
     wget
     gnumake
-    sops
-    ncurses # support different terminals when u ssh (for example)
   ];
-
-  networking.firewall.allowedTCPPorts = [ 22 ];
 }
