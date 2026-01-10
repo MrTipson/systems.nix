@@ -1,5 +1,10 @@
 { lib, pkgs, ... }:
 {
+  imports = with import ../../modules; [
+    zfs
+    zfsRoot
+  ];
+
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "ehci_pci"

@@ -26,6 +26,19 @@
       "url": "https://github.com/mrtipson/dummy-session/archive/a3c7f2ad7247f6db1eece0051136c39673d98042.tar.gz",
       "hash": "1ix5fwiy6mr0ddlbscpmms43yngkn9jnm9xpmwzigs93mj5zh8dw"
     },
+    "impermanence": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "impermanence"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "82e5bc4508cab9e8d5a136626276eb5bbce5e9c5",
+      "url": "https://github.com/nix-community/impermanence/archive/82e5bc4508cab9e8d5a136626276eb5bbce5e9c5.tar.gz",
+      "hash": "1c7fa8y2fxgm9gbhalcinhdj66whik3ly3kyqlr2lr0g0zsffalb"
+    },
     "multiseat-nix": {
       "type": "Git",
       "repository": {

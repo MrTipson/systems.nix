@@ -1,7 +1,5 @@
 {
-  overrides ? {
-    multiseat-nix.outPath = "/home/tipson/Dev/multiseat-nix";
-  },
+  overrides ? { },
   sources ? (import ./npins // overrides),
   ...
 }:

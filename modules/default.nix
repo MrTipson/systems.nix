@@ -9,6 +9,7 @@
   greetd = import ./greetd.nix;
   grist = import ./grist.nix;
   grub = import ./grub.nix;
+  impermanence = import ./impermanence.nix;
   kiwix-serve = import ./kiwix-serve.nix;
   syncthing = import ./syncthing.nix;
   multiseat = import ./multiseat.nix;
@@ -21,4 +22,5 @@
   sops = import ./sops.nix;
   tailscale = import ./tailscale.nix;
   zfs = import ./zfs.nix;
+  zfsRoot = import ./zfsRoot.nix;
 }

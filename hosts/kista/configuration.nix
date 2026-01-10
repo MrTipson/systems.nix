@@ -2,7 +2,7 @@
 {
   imports = with import ../../modules; [
     avahi
-    zfs
+    impermanence
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -15,7 +15,8 @@
     nameservers = [ "1.1.1.1" ];
   };
 
-  users.users = {
+  # impermanence stubs users
+  custom.users = {
     tipson = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
