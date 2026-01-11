@@ -49,9 +49,9 @@ in
         "defaults"
         # whatever size feels comfortable, smaller is better
         # a good default is to start with 1G, having a small tmpfs acts as a tripwire hinting that there is something
-	# you should probably persist, but haven't done so
+        # you should probably persist, but haven't done so
         # you can always increase size with e.g. 'mount -o remount,size=1G /'
-	"size=1G"
+        "size=1G"
         #"size=256M"
         "mode=755"
       ];
@@ -89,10 +89,13 @@ in
       "/cache" = {
         inherit (cfg.cache) files;
         hideMounts = true; # don't show up in file manager
-        directories = lib.unique ([
-	  "/var/lib/systemd/coredump"
-	  "/root/.cache/nix"
-	] ++ cfg.cache.directories);
+        directories = lib.unique (
+          [
+            "/var/lib/systemd/coredump"
+            "/root/.cache/nix"
+          ]
+          ++ cfg.cache.directories
+        );
 
         # user persisted cache dirs are not configured here
         # users should move any additional files into 'Cache'
@@ -105,6 +108,15 @@ in
     };
   };
 
+  # silence warning about setting multiple user password options
+  # https://github.com/NixOS/nixpkgs/pull/287506#issuecomment-1950958990
+  options = {
+    warnings = lib.mkOption {
+      apply = builtins.filter (
+        w: !lib.hasInfix "If multiple of these password options are set at the same time" w
+      );
+    };
+  };
   # this creates a stub for users to prevent infinite recursion
   options.custom.users = options.users.users;
   config.users = {
@@ -116,6 +128,6 @@ in
         initialPassword = "password";
         hashedPasswordFile = "/persist/etc/shadow/${name}";
       }
-    ) (normalUsers // { root = config.custom.users.root or {}; });
+    ) (normalUsers // { root = config.custom.users.root or { }; });
   };
 }
