@@ -3,6 +3,7 @@
   imports = with import ../../modules; [
     avahi
     impermanence
+    sailing
   ];
 
   boot.loader.systemd-boot.enable = true;

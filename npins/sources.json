@@ -39,6 +39,19 @@
       "url": "https://github.com/nix-community/impermanence/archive/82e5bc4508cab9e8d5a136626276eb5bbce5e9c5.tar.gz",
       "hash": "1c7fa8y2fxgm9gbhalcinhdj66whik3ly3kyqlr2lr0g0zsffalb"
     },
+    "jellarr": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "venkyr77",
+        "repo": "jellarr"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "934a73f1060954904c927fbafd5a84bb6db10e1a",
+      "url": "https://github.com/venkyr77/jellarr/archive/934a73f1060954904c927fbafd5a84bb6db10e1a.tar.gz",
+      "hash": "18gxzy3i4mgzs8gq6v4k0fvcl6wba1f0ccd3zfmg30n8wzh16r4p"
+    },
     "multiseat-nix": {
       "type": "Git",
       "repository": {
@@ -55,8 +68,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre913981.7d853e518814/nixexprs.tar.xz",
-      "hash": "1cpg513zly625rw05kbz1hvfiqcrwbd71c1bqhp61sh6ng8ifg4c"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre927565.13868c071cc7/nixexprs.tar.xz",
+      "hash": "0kq3vzi4f4ifx6jqqxvkrsd5grnmfay2nppzxpy1yni7rpjykry2"
     },
     "sops-nix": {
       "type": "Git",
@@ -67,9 +80,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "443a7f2e7e118c4fc63b7fae05ab3080dd0e5c63",
-      "url": "https://github.com/Mic92/sops-nix/archive/443a7f2e7e118c4fc63b7fae05ab3080dd0e5c63.tar.gz",
-      "hash": "1mj85yd3bknzpvnnnpg72qhvsp23pjjndskn3lxx4f7ns5ymhr45"
+      "revision": "e085e303dfcce21adcb5fec535d65aacb066f101",
+      "url": "https://github.com/Mic92/sops-nix/archive/e085e303dfcce21adcb5fec535d65aacb066f101.tar.gz",
+      "hash": "1xf0k7vsllwyyqrq0wpxzx9xs5zqr2sc82bh5hkr22fska8ascin"
     }
   },
   "version": 5
