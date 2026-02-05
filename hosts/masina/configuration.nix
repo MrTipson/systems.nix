@@ -9,7 +9,8 @@
     multiseat
     nogreet
     pipewire
-#    display-fix
+    samba
+    sops
     tailscale
   ];
   hardware.graphics = {
@@ -38,6 +39,7 @@
     tipson = {
       isNormalUser = true;
       extraGroups = [
+        "samba"
         "wheel"
         "docker"
         "pipewire"

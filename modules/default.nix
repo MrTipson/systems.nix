@@ -20,6 +20,7 @@
   registry = import ./registry.nix;
   sailing = import ./sailing.nix;
   share-network = import ./share-network.nix;
+  samba = import ./samba.nix;
   sops = import ./sops.nix;
   tailscale = import ./tailscale.nix;
   zfs = import ./zfs.nix;
