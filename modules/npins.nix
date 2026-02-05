@@ -5,6 +5,9 @@
   lib,
   ...
 }:
+let
+  sources' = builtins.removeAttrs sources [ "__functor" ];
+in
 {
   environment = {
     systemPackages = [ pkgs.npins ];
@@ -12,7 +15,7 @@
       lib.mapAttrsToList (name: src: {
         inherit name;
         path = src.outPath;
-      }) sources
+      }) sources'
     );
   };
 
@@ -31,7 +34,7 @@
     channel.enable = false;
 
     # Set $NIX_PATH to our sources in /etc/npins.
-    nixPath = lib.mkForce (lib.mapAttrsToList (n: _: "${n}=/etc/npins/${n}") sources);
+    nixPath = lib.mkForce (lib.mapAttrsToList (n: _: "${n}=/etc/npins/${n}") sources');
 
     # Translate npins sources to Flakes in the system registry.
     registry = lib.mkForce (
@@ -40,7 +43,7 @@
           type = "path";
           path = "${v}";
         };
-      }) sources
+      }) sources'
     );
   };
 

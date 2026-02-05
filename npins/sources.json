@@ -11,7 +11,7 @@
       "submodules": false,
       "revision": "ed1674816e99f78d60dbe9de99fab75e77dc1d93",
       "url": "https://github.com/mrtipson/banked-rank-it/archive/ed1674816e99f78d60dbe9de99fab75e77dc1d93.tar.gz",
-      "hash": "0v3n33m204p4ayd1p0qhycxm56k2mqr5d2bkqz2q8pgs5z46hld8"
+      "hash": "sha256-qFFoyC/6XYTFx3OJVjKuYppSO/MQgxuaV+QSIOoYdmw="
     },
     "dummy-session": {
       "type": "Git",
@@ -24,7 +24,7 @@
       "submodules": false,
       "revision": "a3c7f2ad7247f6db1eece0051136c39673d98042",
       "url": "https://github.com/mrtipson/dummy-session/archive/a3c7f2ad7247f6db1eece0051136c39673d98042.tar.gz",
-      "hash": "1ix5fwiy6mr0ddlbscpmms43yngkn9jnm9xpmwzigs93mj5zh8dw"
+      "hash": "sha256-vCH4i6wj6Rc/r7enamWy81k/iK71Mr1oayBX4yN3pcc="
     },
     "impermanence": {
       "type": "Git",
@@ -35,9 +35,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "82e5bc4508cab9e8d5a136626276eb5bbce5e9c5",
-      "url": "https://github.com/nix-community/impermanence/archive/82e5bc4508cab9e8d5a136626276eb5bbce5e9c5.tar.gz",
-      "hash": "1c7fa8y2fxgm9gbhalcinhdj66whik3ly3kyqlr2lr0g0zsffalb"
+      "revision": "7b1d382faf603b6d264f58627330f9faa5cba149",
+      "url": "https://github.com/nix-community/impermanence/archive/7b1d382faf603b6d264f58627330f9faa5cba149.tar.gz",
+      "hash": "sha256-03+JxvzmfwRu+5JafM0DLbxgHttOQZkUtDWBmeUkN8Y="
     },
     "jellarr": {
       "type": "Git",
@@ -48,9 +48,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "934a73f1060954904c927fbafd5a84bb6db10e1a",
-      "url": "https://github.com/venkyr77/jellarr/archive/934a73f1060954904c927fbafd5a84bb6db10e1a.tar.gz",
-      "hash": "18gxzy3i4mgzs8gq6v4k0fvcl6wba1f0ccd3zfmg30n8wzh16r4p"
+      "revision": "c4ab03535ba53a37479209710c407a0d0046b9bb",
+      "url": "https://github.com/venkyr77/jellarr/archive/c4ab03535ba53a37479209710c407a0d0046b9bb.tar.gz",
+      "hash": "sha256-Z8mzIKKJjhuOO3tDgBiH0lzzQnFyaCVUp3xO+pXZcYU="
     },
     "multiseat-nix": {
       "type": "Git",
@@ -63,13 +63,13 @@
       "submodules": false,
       "revision": "0a1676a37f4b118ae9804a32c1df624de3413532",
       "url": "https://github.com/mrtipson/multiseat-nix/archive/0a1676a37f4b118ae9804a32c1df624de3413532.tar.gz",
-      "hash": "1wvdc43m4bj7svvmr975gv14l2islmmhx7qbh0j82596pyky6jww"
+      "hash": "sha256-nEvjp78mFYEkgAufDmulOgpKwn7lpFz31kcuUgdhbfM="
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre927565.13868c071cc7/nixexprs.tar.xz",
-      "hash": "0kq3vzi4f4ifx6jqqxvkrsd5grnmfay2nppzxpy1yni7rpjykry2"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre940087.aa290c9891fa/nixexprs.tar.xz",
+      "hash": "sha256-geJaJAEKCx1J2RH2Jt8fGxuPys6TCMRQPwtOwiVrE/A="
     },
     "sops-nix": {
       "type": "Git",
@@ -80,10 +80,10 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "e085e303dfcce21adcb5fec535d65aacb066f101",
-      "url": "https://github.com/Mic92/sops-nix/archive/e085e303dfcce21adcb5fec535d65aacb066f101.tar.gz",
-      "hash": "1xf0k7vsllwyyqrq0wpxzx9xs5zqr2sc82bh5hkr22fska8ascin"
+      "revision": "17eea6f3816ba6568b8c81db8a4e6ca438b30b7c",
+      "url": "https://github.com/Mic92/sops-nix/archive/17eea6f3816ba6568b8c81db8a4e6ca438b30b7c.tar.gz",
+      "hash": "sha256-ktjWTq+D5MTXQcL9N6cDZXUf9kX8JBLLBLT0ZyOTSYY="
     }
   },
-  "version": 5
+  "version": 7
 }
