@@ -5,6 +5,5 @@ sources: {
     ../default/configuration.nix
     ./configuration.nix
     ./hardware.nix
-    "${sources.sops-nix}/modules/sops"
   ];
 }

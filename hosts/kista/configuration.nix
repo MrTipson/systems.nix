@@ -4,6 +4,7 @@
     avahi
     impermanence
     sailing
+    sops
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -21,7 +22,6 @@
     tipson = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
-      shell = pkgs.fish;
     };
   };
 
