@@ -6,6 +6,7 @@
     impermanence
     sailing
     sops
+    tailscale
   ];
 
   boot.loader.systemd-boot.enable = true;
