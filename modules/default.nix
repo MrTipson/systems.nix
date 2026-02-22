@@ -9,6 +9,7 @@
   greetd = import ./greetd.nix;
   grist = import ./grist.nix;
   grub = import ./grub.nix;
+  icecast = import ./icecast.nix;
   impermanence = import ./impermanence.nix;
   kiwix-serve = import ./kiwix-serve.nix;
   syncthing = import ./syncthing.nix;

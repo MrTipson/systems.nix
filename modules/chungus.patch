@@ -1,0 +1,13 @@
+diff --git a/src/core/builtins/builtins_process.ml b/src/core/builtins/builtins_process.ml
+index f3839ae05..6d929964c 100644
+--- a/src/core/builtins/builtins_process.ml
++++ b/src/core/builtins/builtins_process.ml
+@@ -174,7 +174,7 @@ let _ =
+         Sandbox.cmd ~rw:sandbox_rw ~ro:sandbox_ro ~network:sandbox_network
+           cmd_value
+       in
+-      let buflen = Utils.pagesize in
++      let buflen = 100000 in
+       let out_buf = Buffer.create buflen in
+       let err_buf = Buffer.create buflen in
+       let on_done (timed_out, status) =
