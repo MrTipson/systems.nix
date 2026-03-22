@@ -18,6 +18,7 @@
   nogreet = import ./nogreet.nix;
   nvidia = import ./nvidia.nix;
   pipewire = import ./pipewire.nix;
+  plasma-bigscreen = import ./plasma-bigscreen.nix;
   registry = import ./registry.nix;
   sailing = import ./sailing.nix;
   share-network = import ./share-network.nix;

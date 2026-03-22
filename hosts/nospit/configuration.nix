@@ -8,9 +8,12 @@
     grist
     kiwix-serve
     nextcloud
+    pipewire
+    plasma-bigscreen
     sops
     # custom options
     share-network
+    tailscale
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -33,7 +36,10 @@
       to = "enp1s0";
     };
   };
-
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
   users.users = {
     tipson = {
       isNormalUser = true;
