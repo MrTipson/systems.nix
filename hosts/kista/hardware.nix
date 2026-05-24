@@ -40,6 +40,10 @@
       device = "storage/music";
       fsType = "zfs";
     };
+    "/storage/dump" = {
+      device = "storage/dump";
+      fsType = "zfs";
+    };
   };
 
   users.users.samba = {
@@ -48,6 +52,7 @@
     group = "samba";
   };
   users.groups.samba = { };
+  custom.persist.directories = [ "/var/lib/samba" ];
   services.samba = {
     # sudo smbpasswd -a my_user
     enable = true;
@@ -116,7 +121,16 @@
         "force user" = "samba";
         "force group" = "samba";
       };
-
+      "dump" = {
+        "path" = "/storage/dump";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "samba";
+        "force group" = "samba";
+      };
     };
   };
 

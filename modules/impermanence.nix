@@ -59,6 +59,7 @@ in
 
     security.sudo.extraConfig = "Defaults lecture=never"; # sudo acknowledgment flag gets deleted
 
+    environment.systemPackages = [(pkgs.writeShellScriptBin "impermanence" "${lib.getExe pkgs.fd} --one-file-system --base-directory / --type f --hidden --list-details")];
     # setup persistence
     environment.persistence = {
       "/persist" = {
