@@ -26,6 +26,20 @@
       "url": "https://github.com/mrtipson/dummy-session/archive/a3c7f2ad7247f6db1eece0051136c39673d98042.tar.gz",
       "hash": "sha256-vCH4i6wj6Rc/r7enamWy81k/iK71Mr1oayBX4yN3pcc="
     },
+    "iTM-dots": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "itzTheMeow",
+        "repo": "dotfiles"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "918e34bae4141e37db2a87a998f12229ce042a51",
+      "url": "https://github.com/itzTheMeow/dotfiles/archive/918e34bae4141e37db2a87a998f12229ce042a51.tar.gz",
+      "hash": "sha256-YfFl1cdgLN5o88+UHGA7l5bb9+KYKv50+rEu80J4+FM=",
+      "frozen": true
+    },
     "impermanence": {
       "type": "Git",
       "repository": {
@@ -48,23 +62,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "c4ab03535ba53a37479209710c407a0d0046b9bb",
-      "url": "https://github.com/venkyr77/jellarr/archive/c4ab03535ba53a37479209710c407a0d0046b9bb.tar.gz",
-      "hash": "sha256-Z8mzIKKJjhuOO3tDgBiH0lzzQnFyaCVUp3xO+pXZcYU="
-    },
-    "iTM-dots": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "itzTheMeow",
-        "repo": "dotfiles"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "32057a3e1b621ae18663c5a6a0c8ec20edc80153",
-      "url": "https://github.com/itzTheMeow/dotfiles/archive/dedd3c3392a4368e2e011fa7e1934dd83c916288.tar.gz",
-      "hash": "08jax74kg8393nhydgbgjyhy6h13c57w5d9r8ma0ykwv7j7b7vc7",
-      "frozen": true
+      "revision": "429d1df5f3ff3e154a1b15fbb6cae1008db329b6",
+      "url": "https://github.com/venkyr77/jellarr/archive/429d1df5f3ff3e154a1b15fbb6cae1008db329b6.tar.gz",
+      "hash": "sha256-J70m2E80NekhwOHHKZqu9tMquE9ZCw3LGeq0pB+kYdg="
     },
     "multiseat-nix": {
       "type": "Git",
@@ -82,8 +82,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre964972.9cf7092bdd60/nixexprs.tar.xz",
-      "hash": "0c2095q2n7w6f7dsjgyhnf0iic6yvqyvb6qdzna3ya6xjdwfx6sa"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1011620.cbb5cf358f50/nixexprs.tar.xz",
+      "hash": "sha256-d86UGSjwACWRttincQzeiAEZYVPtP3kODhr9hYZD4e8="
     },
     "sops-nix": {
       "type": "Git",
@@ -94,9 +94,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "3e0d543e6ba6c0c48117a81614e90c6d8c425170",
-      "url": "https://github.com/Mic92/sops-nix/archive/3e0d543e6ba6c0c48117a81614e90c6d8c425170.tar.gz",
-      "hash": "0s06zk9psh0v27ggvw09c74dqgz7n72k4ddj7vzafx6jh2bfxi6f"
+      "revision": "9ed65852b6257fbeae4355bc24ecfea307ca759a",
+      "url": "https://github.com/Mic92/sops-nix/archive/9ed65852b6257fbeae4355bc24ecfea307ca759a.tar.gz",
+      "hash": "sha256-Gq8KNx5A7hBB3uGJaj6eQfLDIz5YdLu92gqBcvHvoUo="
     }
   },
   "version": 7
