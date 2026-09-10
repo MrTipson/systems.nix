@@ -12,7 +12,6 @@
   icecast = import ./icecast.nix;
   impermanence = import ./impermanence.nix;
   kiwix-serve = import ./kiwix-serve.nix;
-  syncthing = import ./syncthing.nix;
   multiseat = import ./multiseat.nix;
   nextcloud = import ./nextcloud.nix;
   nogreet = import ./nogreet.nix;
