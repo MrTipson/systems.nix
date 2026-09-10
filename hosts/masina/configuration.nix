@@ -21,12 +21,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-    AllowHybridSleep=no
-    AllowSuspendThenHibernate=no
-  '';
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = false;
+    AllowHibernation = false;
+    AllowHybridSleep = false;
+    AllowSuspendThenHibernate = false;
+  };
   # virtualisation.waydroid.enable = true;
 
   networking = {
