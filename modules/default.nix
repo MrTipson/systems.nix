@@ -16,6 +16,7 @@
   multiseat = import ./multiseat.nix;
   nextcloud = import ./nextcloud.nix;
   nogreet = import ./nogreet.nix;
+  npins = import ./npins.nix;
   nvidia = import ./nvidia.nix;
   pipewire = import ./pipewire.nix;
   plasma-bigscreen = import ./plasma-bigscreen.nix;

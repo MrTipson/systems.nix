@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ../../modules/npins.nix ];
+  imports = with import ../../modules; [ npins ];
   nix.settings.experimental-features = [
     "nix-command"
   ];
