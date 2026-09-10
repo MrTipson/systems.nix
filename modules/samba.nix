@@ -33,6 +33,7 @@ in
 {
   imports = [
     (mkMount "/mnt/music" "music" "//kista.local/music")
+    (mkMount "/mnt/dump" "dump" "//kista.local/dump")
   ];
   boot.supportedFilesystems.cifs = true;
   users.groups.samba = { };
