@@ -62,7 +62,9 @@
   environment.systemPackages = with pkgs; [
     sshfs
     home-manager
+    pkgs.nerd-fonts.fira-code
   ];
+  environment.pathsToLink = [ "/share/fonts" ];
 
   system.stateVersion = "24.11"; # don't change
 }
