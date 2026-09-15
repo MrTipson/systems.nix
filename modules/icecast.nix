@@ -5,11 +5,6 @@
   ...
 }:
 let
-  liquidsoap = pkgs.liquidsoap.overrideAttrs (old: {
-    patches = old.patches or [ ] ++ [
-      ./chungus.patch
-    ];
-  });
   icecast = pkgs.icecast.overrideAttrs (old: {
     patches = old.patches or [ ] ++ [
       (pkgs.fetchpatch2 {
@@ -107,7 +102,7 @@ in
     {
       systemd.services = builtins.mapAttrs (_: stream: {
         serviceConfig.LoadCredential = "creds:${config.sops.secrets.liquidsoap.path}";
-        serviceConfig.ExecStart = lib.mkForce "${lib.getExe liquidsoap} ${stream}";
+        serviceConfig.ExecStart = lib.mkForce "${lib.getExe pkgs.liquidsoap} ${stream}";
       }) config.services.liquidsoap.streams;
     }
   ];
