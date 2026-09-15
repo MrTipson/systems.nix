@@ -4,8 +4,9 @@
 
   sops = {
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/tipson/.config/sops/age/keys.txt";
+    age.keyFile = "/etc/sops/age/keys.txt";
   };
+  custom.persist.files = [ "/etc/sops/age/keys.txt" ];
 
   environment.systemPackages = with pkgs; [
     sops
