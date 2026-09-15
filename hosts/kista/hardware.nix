@@ -68,7 +68,7 @@
         #"max protocol" = "smb2";
         # note: localhost is the ipv6 localhost ::1
         "hosts allow" = toString [
-          "192.168.64." # local network
+          "192.168.68." # local network
           "10.0.0." # lan
           "100.64.0." # tailscale network
           "127.0.0.1"
