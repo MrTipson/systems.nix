@@ -7,6 +7,7 @@
     sailing
     sops
     tailscale
+    zaklad
   ];
 
   boot.loader.systemd-boot.enable = true;

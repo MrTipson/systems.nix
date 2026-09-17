@@ -13,6 +13,22 @@
       "url": "https://github.com/mrtipson/banked-rank-it/archive/ed1674816e99f78d60dbe9de99fab75e77dc1d93.tar.gz",
       "hash": "sha256-qFFoyC/6XYTFx3OJVjKuYppSO/MQgxuaV+QSIOoYdmw="
     },
+    "copyparty": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "9001",
+        "repo": "copyparty"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v1.20.23",
+      "revision": "ad9994bef37b4dc513647932b0f99e8659ea5fbb",
+      "url": "https://api.github.com/repos/9001/copyparty/tarball/refs/tags/v1.20.23",
+      "hash": "sha256-WAEvtxvVStLWif2tFmIFVkeWGCn0iI7fyVLbGlxz/2o="
+    },
     "dummy-session": {
       "type": "Git",
       "repository": {

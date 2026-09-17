@@ -25,6 +25,7 @@
   samba = import ./samba.nix;
   sops = import ./sops.nix;
   tailscale = import ./tailscale.nix;
+  zaklad = import ./zaklad.nix;
   zfs = import ./zfs.nix;
   zfsRoot = import ./zfsRoot.nix;
 }
