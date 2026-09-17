@@ -9,7 +9,7 @@
   greetd = import ./greetd.nix;
   grist = import ./grist.nix;
   grub = import ./grub.nix;
-  icecast = import ./icecast.nix;
+  liquidsoap = import ./liquidsoap.nix;
   impermanence = import ./impermanence.nix;
   kiwix-serve = import ./kiwix-serve.nix;
   multiseat = import ./multiseat.nix;

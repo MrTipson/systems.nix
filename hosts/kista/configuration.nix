@@ -2,8 +2,8 @@
 {
   imports = with import ../../modules; [
     avahi
-    icecast
     impermanence
+    liquidsoap
     sailing
     sops
     tailscale
